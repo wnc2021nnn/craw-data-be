@@ -1,0 +1,13 @@
+INSERT INTO public.category(category_id, title)
+	VALUES 
+		('category_001', 'IT'),
+		('category_002', 'Artist'),
+		('category_003', 'Personal Development'),
+		('category_004', 'Talent'),
+		('category_005', 'Design'),
+		('category_006', 'Marketing'),
+		('category_007', 'Office Productivity'),
+		('category_008', 'Sales'),
+		('category_009', 'Common Knowledge'),
+		('category_010', 'Universal Knowledge');
+	
