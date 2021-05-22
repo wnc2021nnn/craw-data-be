@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.craw_data.models.Topic" table="topic" schema="public" catalog="academy">
+        <id name="topicId">
+            <column name="topic_id" sql-type="varchar(20)" length="20"/>
+        </id>
+
+        <set inverse="true" name="courses" fetch="join" lazy="false">
+            <key>
+                <column name="topic_id" length="20" not-null="true"/>
+            </key>
+            <one-to-many class="com.craw_data.models.Course"/>
+        </set>
+
+        <many-to-one name="category" class="com.craw_data.models.Category" fetch="select">
+            <column name="category_id" length="20" not-null="true" />
+        </many-to-one>
+
+        <property name="title">
+            <column name="title" sql-type="varchar(255)"/>
+        </property>
+    </class>
+</hibernate-mapping>
