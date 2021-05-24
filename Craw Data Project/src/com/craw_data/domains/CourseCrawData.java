@@ -1,28 +1,26 @@
 package com.craw_data.domains;
 
+import com.craw_data.domains.base.BaseCrawData;
 import com.craw_data.models.Course;
 import com.craw_data.utils.BaseLinks;
 import com.craw_data.utils.ElementClassName;
-import com.craw_data.utils.HTMLPageURI;
+import com.craw_data.utils.HTMLFileURI;
 import com.craw_data.utils.ImageChecker;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class CourseCrawData {
-    private final List<Course> courses = new ArrayList<>();
-
-    public int tryGetCourse() {
+public class CourseCrawData extends BaseCrawData<Course> {
+    @Override
+    public int loadFromDisk(List<String> paths) {
         // Clear course before
-        courses.clear();
+        items.clear();
 
-        HTMLPageURI.listCourse.forEach(page -> {
+        paths.forEach(page -> {
             // Get Document from html page
             File file = new File(page);
             Document doc = null;
@@ -53,27 +51,10 @@ public class CourseCrawData {
                 newCourse.setPrice(new Random().nextFloat() * 10);
 
                 // Add to list result
-                courses.add(newCourse);
+                items.add(newCourse);
             });
         });
 
-        return courses.size();
+        return items.size();
     }
-
-    public void writeToTxtFile() {
-        try (PrintWriter printer = new PrintWriter("courses_sql.txt")) {
-            // Write Query Syntax
-            printer.println(Course.insertQuery);
-            // Write Data
-            courses.forEach(course -> {
-                String courseString = course.toSQLString();
-                printer.println("\t" + courseString + ",");
-            });
-            //
-            printer.print(";");
-        } catch (IOException e) {
-            System.err.println(e);
-        }
-    }
-
 }

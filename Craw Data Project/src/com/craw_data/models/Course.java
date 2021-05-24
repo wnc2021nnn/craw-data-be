@@ -1,11 +1,11 @@
 package com.craw_data.models;
 
+import com.craw_data.models.base.BaseModel;
 import com.craw_data.utils.MyRandom;
 
 import java.util.Objects;
-import java.util.Random;
 
-public class Course {
+public class Course extends BaseModel {
     public static final String insertQuery = "INSERT INTO public.course(\n" +
             "\tcourse_id, title, description, topic_id, lecturers_id, rating, rating_total, avatar, price)\n" +
             "\tVALUES";
@@ -28,7 +28,7 @@ public class Course {
         this.ratingTotal = 0;
         this.price = 0.0f;
         this.lecturersId = "user_" + MyRandom.randomUserNumber();
-        this.topicId =  "topic_" + MyRandom.randomTopicNumber();
+        this.topicId = "topic_" + MyRandom.randomTopicNumber();
     }
 
     public String getCourseId() {
@@ -108,12 +108,15 @@ public class Course {
         return Objects.hash(courseId, title, description, rating, ratingTotal, avatar, price);
     }
 
+    @Override
     public String toSQLString() {
+        final String titleString = title.replaceAll("'", "''");
+        final String descriptionString = title.replaceAll("'", "''");
         return String.format(
                 "('%s', '%s', '%s', '%s', '%s', %f, %d, '%s', %f)",
                 this.courseId,
-                this.title,
-                this.description,
+                titleString,
+                descriptionString,
                 this.topicId,
                 this.lecturersId,
                 this.rating,

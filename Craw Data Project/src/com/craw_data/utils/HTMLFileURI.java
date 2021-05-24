@@ -3,7 +3,7 @@ package com.craw_data.utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HTMLPageURI {
+public class HTMLFileURI {
     static final String baseUriHtmlListCourse = "html_page/html_list_course/";
     static final String baseUriHtmlCourseContent = "html_page/html_course_content/";
 
