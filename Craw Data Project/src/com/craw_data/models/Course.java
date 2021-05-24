@@ -6,10 +6,6 @@ import com.craw_data.utils.MyRandom;
 import java.util.Objects;
 
 public class Course extends BaseModel {
-    public static final String insertQuery = "INSERT INTO public.course(\n" +
-            "\tcourse_id, title, description, topic_id, lecturers_id, rating, rating_total, avatar, price)\n" +
-            "\tVALUES";
-
     private static int nextId = 1;
 
     private String courseId;
@@ -23,12 +19,12 @@ public class Course extends BaseModel {
     private String lecturersId;
 
     public Course() {
-        this.courseId = "course_" + nextId++;
+        this.courseId = "course_" + String.format("%06d", nextId++);
         this.rating = 0.0f;
         this.ratingTotal = 0;
         this.price = 0.0f;
-        this.lecturersId = "user_" + MyRandom.randomUserNumber();
-        this.topicId = "topic_" + MyRandom.randomTopicNumber();
+        this.lecturersId = "user_" + String.format("%06d", MyRandom.randomUserNumber());
+        this.topicId = "topic_" + String.format("%03d", MyRandom.randomTopicNumber());
     }
 
     public String getCourseId() {

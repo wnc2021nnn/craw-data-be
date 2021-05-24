@@ -7,11 +7,11 @@ public class MyRandom {
 
     public static int randomUserNumber() {
         //TODO: refactor this hard code
-        return random.nextInt(10);
+        return random.nextInt(10) + 1;
     }
 
     public static int randomTopicNumber() {
         //TODO: refactor this hard code
-        return random.nextInt(37);
+        return random.nextInt(37) + 1;
     }
 }

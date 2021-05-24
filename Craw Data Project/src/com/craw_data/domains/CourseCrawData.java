@@ -4,7 +4,6 @@ import com.craw_data.domains.base.BaseCrawData;
 import com.craw_data.models.Course;
 import com.craw_data.utils.BaseLinks;
 import com.craw_data.utils.ElementClassName;
-import com.craw_data.utils.HTMLFileURI;
 import com.craw_data.utils.ImageChecker;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -56,5 +55,10 @@ public class CourseCrawData extends BaseCrawData<Course> {
         });
 
         return items.size();
+    }
+
+    @Override
+    public int loadFromDisk(String path) {
+        return 0;
     }
 }

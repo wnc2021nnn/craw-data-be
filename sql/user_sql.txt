@@ -1,0 +1,14 @@
+INSERT INTO public."user"(
+	user_id, email, password, first_name, last_name, create_time, role)
+	VALUES 
+	('user_000001', 'nhinlechi@gmail.com', '123456', 'Nhin', 'Le Chi', 1621839391000, 2),
+	('user_000002', 'nhin1@gmail.com', '123456', 'Nhin9', 'Le Chi', 1621839391000, 2),
+	('user_000003', 'nhin2@gmail.com', '123456', 'Nhin1', 'Le Chi', 1621839391000, 2),
+	('user_000004', 'nhin3@gmail.com', '123456', 'Nhin2', 'Le Chi', 1621839391000, 2),
+	('user_000005', 'nhin4@gmail.com', '123456', 'Nhin3', 'Le Chi', 1621839391000, 2),
+	('user_000006', 'nhin5@gmail.com', '123456', 'Nhin4', 'Le Chi', 1621839391000, 2),
+	('user_000007', 'nhin6@gmail.com', '123456', 'Nhin5', 'Le Chi', 1621839391000, 2),
+	('user_000008', 'nhin7@gmail.com', '123456', 'Nhin6', 'Le Chi', 1621839391000, 2),
+	('user_000009', 'nhin8@gmail.com', '123456', 'Nhin7', 'Le Chi', 1621839391000, 2),
+	('user_000010', 'nhin9@gmail.com', '123456', 'Nhin8', 'Le Chi', 1621839391000, 2)
+;

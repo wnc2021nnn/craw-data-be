@@ -1,22 +1,20 @@
 package com.craw_data.models;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import com.craw_data.models.base.BaseModel;
 
-public class Topic {
-    private String topicId;
+import java.util.Objects;
+
+public class Topic extends BaseModel {
+    public static int nextCategoryId = 0;
+    private static int nextId = 1;
+
+    private final String topicId;
+    private final String categoryId;
     private String title;
 
-    private Category category;
-    private Set<Course> courses = new HashSet<>(0);
-
-    public String getTopicId() {
-        return topicId;
-    }
-
-    public void setTopicId(String topicId) {
-        this.topicId = topicId;
+    public Topic() {
+        this.topicId = "topic_" + String.format("%03d", nextId++);
+        this.categoryId = "category_" + String.format("%03d", nextCategoryId);
     }
 
     public String getTitle() {
@@ -27,32 +25,19 @@ public class Topic {
         this.title = title;
     }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public Set<Course> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(Set<Course> courses) {
-        this.courses = courses;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Topic topic = (Topic) o;
-        return Objects.equals(topicId, topic.topicId) && Objects.equals(title, topic.title);
-    }
-
     @Override
     public int hashCode() {
         return Objects.hash(topicId, title);
     }
+
+    @Override
+    public String toSQLString() {
+        return String.format(
+                "('%s', '%s', '%s')",
+                topicId,
+                categoryId,
+                title
+        );
+    }
+
 }

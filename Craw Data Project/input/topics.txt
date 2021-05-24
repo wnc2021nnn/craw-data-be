@@ -1,0 +1,56 @@
+IT
++ Database Design & Development
++ Development Tools
++ Game Development
++ Mobile Development
++ Programing Languages
++ Software Engineering
++ Software Testing
++ Web Development
++ Big Data
++ Machine Learning
+
+Artist
++ Draw
++ Vocalist Academy
++ Music Instrument
+
+Personal Development
++ Soft Skill
++ Communication
++ Learning Faster
++ Emotional Control
+
+Talent
++ Sing & Songs
++ Music Instrument
+
+Design
++ Design Fundamental
++ Design Principal
++ Web Design
++ Mobile Design
++ Graphic Design
++ Design Tools
+
+Marketing
++ Marketing Skill
++ Marketing Principal
++ Financial Fundamental
++ human psychology
+
+Office Productivity
++ Window Tools
++ Office Tools
+
+Sales
++ Art Of Persuasion
+
+Common Knowledge
++ English
++ Logic Thinking
+
+Universal Knowledge
++ Best Practice
++ Teamwork
++ Presentation skill
