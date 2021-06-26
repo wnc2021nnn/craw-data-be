@@ -4,16 +4,18 @@ import com.craw_data.domains.base.BaseCrawData;
 import com.craw_data.models.Course;
 import com.craw_data.utils.BaseLinks;
 import com.craw_data.utils.ElementClassName;
+import com.craw_data.utils.ITitleUtils;
 import com.craw_data.utils.ImageChecker;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class CourseCrawData extends BaseCrawData<Course> {
+public class CourseCrawData extends BaseCrawData<Course> implements ITitleUtils {
     @Override
     public int loadFromDisk(List<String> paths) {
         // Clear course before
@@ -60,5 +62,14 @@ public class CourseCrawData extends BaseCrawData<Course> {
     @Override
     public int loadFromDisk(String path) {
         return 0;
+    }
+
+    @Override
+    public List<String> getAllTitle() {
+        List<String> titles = new ArrayList<>();
+        for (Course item : items) {
+            titles.add(item.getTitle());
+        }
+        return titles;
     }
 }

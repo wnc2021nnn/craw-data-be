@@ -3,9 +3,15 @@ package com.craw_data.models;
 import com.craw_data.models.base.BaseModel;
 
 public class Chapter extends BaseModel {
+    public static int nextId = 1;
+
     private String chapterId;
     private String courseId;
     private String title;
+
+    public Chapter() {
+        this.chapterId = String.format("chapter_%06d", nextId++);
+    }
 
     public String getChapterId() {
         return chapterId;
@@ -33,10 +39,11 @@ public class Chapter extends BaseModel {
 
     @Override
     public String toSQLString() {
+        final String titleString = title.replaceAll("'", "''");
         return String.format(
-                "(%s, %s, %s)",
+                "('%s', '%s', '%s')",
                 chapterId,
-                title,
+                titleString,
                 courseId);
     }
 }
