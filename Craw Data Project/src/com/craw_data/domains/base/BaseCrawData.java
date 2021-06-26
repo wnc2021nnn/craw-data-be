@@ -14,6 +14,10 @@ public abstract class BaseCrawData<T extends BaseModel> {
 
     public abstract int loadFromDisk(String path);
 
+    public List<T> getItems() {
+        return new ArrayList<>(items);
+    }
+
     public void writeToTxtFile(String query, String path) {
         try (PrintWriter printer = new PrintWriter(path)) {
             // Write Query Syntax

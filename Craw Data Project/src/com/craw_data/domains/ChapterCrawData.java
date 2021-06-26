@@ -30,7 +30,7 @@ public class ChapterCrawData extends BaseCrawData<Chapter> {
                 currentCourseIdNumber++;
                 currentChapterForCurrentCourse = 0;
             }
-            if (currentCourseIdNumber > 40) break;
+            if (currentCourseIdNumber > maxCourseIdNumber) break;
         }
         return items.size();
     }

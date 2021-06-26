@@ -3,11 +3,17 @@ package com.craw_data.models;
 import com.craw_data.models.base.BaseModel;
 
 public class Lesson extends BaseModel {
+    private static int nextId = 1;
+
     private String lessonId;
     private String title;
     private int index;
     private String videoUrl;
     private String chapterId;
+
+    public Lesson() {
+        this.lessonId = String.format("lesson_%06d", nextId++);
+    }
 
     public String getLessonId() {
         return lessonId;
@@ -51,10 +57,11 @@ public class Lesson extends BaseModel {
 
     @Override
     public String toSQLString() {
+        final String titleString = title.replaceAll("'", "''");
         return String.format(
-                "(%s, %s, %d, %s, %s)",
+                "('%s', '%s', '%d', '%s', '%s')",
                 lessonId,
-                title,
+                titleString,
                 index,
                 videoUrl,
                 chapterId
